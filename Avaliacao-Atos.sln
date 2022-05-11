@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao-Atos.Data", "Aval
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao-Atos.IoC", "Avaliacao-Atos.IoC\Avaliacao-Atos.IoC.csproj", "{BB98F08F-2DA5-4C69-A587-B4F582F62E0E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao-Atos.Swagger", "Avaliacao-Atos.Swagger\Avaliacao-Atos.Swagger.csproj", "{0D41082A-A5BD-48CC-A426-271D927D1E41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{BB98F08F-2DA5-4C69-A587-B4F582F62E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB98F08F-2DA5-4C69-A587-B4F582F62E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB98F08F-2DA5-4C69-A587-B4F582F62E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D41082A-A5BD-48CC-A426-271D927D1E41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D41082A-A5BD-48CC-A426-271D927D1E41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D41082A-A5BD-48CC-A426-271D927D1E41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D41082A-A5BD-48CC-A426-271D927D1E41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{E628EDA5-DABE-48A1-BCE2-CD520659A577} = {69952B93-6C99-4D25-9CB3-8662FA25196C}
 		{D8CB68D3-79F3-45D9-863C-68C3B8151E8E} = {4DE468CE-A95A-4C50-8A7D-7E2211CB39F0}
 		{BB98F08F-2DA5-4C69-A587-B4F582F62E0E} = {E628EDA5-DABE-48A1-BCE2-CD520659A577}
+		{0D41082A-A5BD-48CC-A426-271D927D1E41} = {E628EDA5-DABE-48A1-BCE2-CD520659A577}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C142081A-7D56-4AE0-AABD-F2AD3C5B487F}

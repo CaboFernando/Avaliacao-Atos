@@ -2,6 +2,7 @@ using AutoMapper;
 using Avaliacao_Atos.Application.AutoMapper;
 using Avaliacao_Atos.Data.Context;
 using Avaliacao_Atos.IoC;
+using Avaliacao_Atos.Swagger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,8 @@ namespace Avaliacao_Atos
             NativeInjector.RegisterServices(services);
             // Seta para o auto mapper onde está as configurações de mapeamento
             services.AddAutoMapper(typeof(AutoMapperSetup));
+            // Seta swagger para utilizar como endpoint e documentação
+            services.AddSwaggerConfiguration();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -54,6 +57,9 @@ namespace Avaliacao_Atos
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            // Seta chamada de configuração do swagger
+            app.UseSwaggerConfiguration();
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
