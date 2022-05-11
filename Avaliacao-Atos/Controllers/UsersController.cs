@@ -1,11 +1,13 @@
 ﻿using Avaliacao_Atos.Application.Interfaces;
 using Avaliacao_Atos.Application.ViewModels;
+using Avaliacao_Atos.Auth.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Avaliacao_Atos.Controllers
@@ -34,7 +36,7 @@ namespace Avaliacao_Atos.Controllers
             return Ok(userService.Get());
         }
 
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public IActionResult Post(UserViewModel userViewModel)
         {
             return Ok(userService.Post(userViewModel));
@@ -46,10 +48,12 @@ namespace Avaliacao_Atos.Controllers
             return Ok(userService.Put(userViewModel));
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(string id)
+        [HttpDelete]
+        public IActionResult Delete()
         {
-            return Ok(userService.Delete(id));
+            string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
+
+            return Ok(userService.Delete(_userId));
         }
 
         [HttpPost("authenticate"), AllowAnonymous]
