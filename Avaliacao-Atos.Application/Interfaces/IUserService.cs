@@ -11,7 +11,7 @@ namespace Avaliacao_Atos.Application.Interfaces
         List<UserViewModel> Get();
         bool Post(UserViewModel userViewModel);
         bool Put(UserViewModel userViewModel);
-
+        bool Delete(string id);
 
     }
 }

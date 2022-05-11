@@ -65,5 +65,18 @@ namespace Avaliacao_Atos.Application.Services
 
             return true;
         }
+
+        public bool Delete(string id)
+        {
+            if (!Guid.TryParse(id, out Guid userId))
+                throw new Exception("O id informado não é válido");
+
+            User user = userRepository.Find(x => x.Id == userId && !x.IsDeleted);
+
+            if (user == null)
+                throw new Exception("Usuário não encontrado");
+
+            return userRepository.Delete(user);
+        }
     }
 }

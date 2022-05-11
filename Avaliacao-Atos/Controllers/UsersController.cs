@@ -45,5 +45,11 @@ namespace Avaliacao_Atos.Controllers
             return Ok(userService.Put(userViewModel));
         }
 
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
+        {
+            return Ok(userService.Delete(id));
+        }
+
     }
 }
