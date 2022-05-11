@@ -35,7 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Avaliacao-Atos.Application\Avaliacao-Atos.Application.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.Data\Avaliacao-Atos.Data.csproj" />
+    <ProjectReference Include="..\Avaliacao-Atos.IoC\Avaliacao-Atos.IoC.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

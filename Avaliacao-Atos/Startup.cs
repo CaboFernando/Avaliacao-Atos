@@ -1,4 +1,5 @@
 using Avaliacao_Atos.Data.Context;
+using Avaliacao_Atos.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,8 @@ namespace Avaliacao_Atos
             services.AddControllersWithViews();
 
             services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Avaliacao-AtosDb")).EnableSensitiveDataLogging());
+
+            NativeInjector.RegisterServices(services);
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
