@@ -1,4 +1,5 @@
 ﻿using Avaliacao_Atos.Application.Interfaces;
+using Avaliacao_Atos.Application.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,6 +25,12 @@ namespace Avaliacao_Atos.Controllers
         public IActionResult Get()
         {
             return Ok(userService.Get());
+        }
+
+        [HttpPost]
+        public IActionResult Post(UserViewModel userViewModel)
+        {
+            return Ok(userService.Post(userViewModel));
         }
 
     }

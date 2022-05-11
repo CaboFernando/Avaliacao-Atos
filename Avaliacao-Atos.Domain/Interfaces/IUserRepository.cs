@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Avaliacao_Atos.Domain.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository<User>
     {
         IEnumerable<User> GetAll();
     }

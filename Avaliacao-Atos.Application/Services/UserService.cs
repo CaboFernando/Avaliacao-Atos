@@ -34,5 +34,19 @@ namespace Avaliacao_Atos.Application.Services
 
             return userViewModels;
         }
+
+        public bool Post(UserViewModel userViewModel)
+        {
+            User user = new User
+            {
+                Id = Guid.NewGuid(),
+                Email = userViewModel.Email,
+                Name = userViewModel.Name
+            };
+
+            userRepository.Create(user);
+
+            return true;
+        }
     }
 }
