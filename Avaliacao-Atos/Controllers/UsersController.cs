@@ -1,5 +1,6 @@
 ﻿using Avaliacao_Atos.Application.Interfaces;
 using Avaliacao_Atos.Application.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 namespace Avaliacao_Atos.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController, Authorize]
     public class UsersController : ControllerBase
     {
 
@@ -51,7 +52,7 @@ namespace Avaliacao_Atos.Controllers
             return Ok(userService.Delete(id));
         }
 
-        [HttpPost("authenticate")]
+        [HttpPost("authenticate"), AllowAnonymous]
         public IActionResult Authenticate(UserAuthenticateRequestViewModel userViewModel)
         {
             return Ok(userService.Authenticate(userViewModel));
