@@ -23,9 +23,7 @@ namespace Avaliacao_Atos.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            userService.Test();
-
-            return Ok("Ok");
+            return Ok(userService.Get());
         }
 
     }

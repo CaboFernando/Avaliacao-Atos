@@ -1,12 +1,12 @@
-﻿using Avaliacao_Atos.Domain.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Avaliacao_Atos.Domain.Entites
+namespace Avaliacao_Atos.Application.ViewModels
 {
-    public class User : Entity
+    public class UserViewModel
     {
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
     }

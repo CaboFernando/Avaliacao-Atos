@@ -12,7 +12,7 @@ namespace Avaliacao_Atos.Data.Extensions
         {
             builder.Entity<User>()
                 .HasData(
-                    new User { Id = Guid.Parse("c56a4180-65aa-42ec-a945-5fd21dec0538"), Name = "User Default", Email = "userdefault@atos.com" }
+                    new User { Id = Guid.Parse("c56a4180-65aa-42ec-a945-5fd21dec0538"), Name = "User Default", Email = "userdefault@atos.com", DateCreated = new DateTime(2022, 05, 11), IsDeleted = false, DateUpdated = null }
                 );
 
             return builder;
