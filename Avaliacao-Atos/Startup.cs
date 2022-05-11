@@ -1,3 +1,5 @@
+using AutoMapper;
+using Avaliacao_Atos.Application.AutoMapper;
 using Avaliacao_Atos.Data.Context;
 using Avaliacao_Atos.IoC;
 using Microsoft.AspNetCore.Builder;
@@ -25,9 +27,12 @@ namespace Avaliacao_Atos
         {
             services.AddControllersWithViews();
 
+            // Seta o contexto do banco de dados usando a ConnectionString do appsettings.json
             services.AddDbContext<DatabaseContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Avaliacao-AtosDb")).EnableSensitiveDataLogging());
-
+            // Seta a injeção de depenência
             NativeInjector.RegisterServices(services);
+            // Seta para o auto mapper onde está as configurações de mapeamento
+            services.AddAutoMapper(typeof(AutoMapperSetup));
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

@@ -37,10 +37,7 @@ namespace Avaliacao_Atos.Data.Extensions
                             break;
                     }
                 }
-
-
             }
-
             return builder;
         }
 
