@@ -24,7 +24,7 @@ namespace Avaliacao_Atos.Application.Services
         public UserViewModel GetById(string id)
         {
             if (!Guid.TryParse(id, out Guid userId))
-                throw new Exception("O id informado não é válido");
+                throw new Exception("O Id do usuário não é válido");
 
             User user = userRepository.Find(x => x.Id == userId && !x.IsDeleted);
 
@@ -46,6 +46,9 @@ namespace Avaliacao_Atos.Application.Services
 
         public bool Post(UserViewModel userViewModel)
         {
+            if (userViewModel.Id != Guid.Empty)
+                throw new Exception("O Id do usuário não pode ser vazio");
+
             User user = mapper.Map<User>(userViewModel);
 
             userRepository.Create(user);
@@ -55,6 +58,9 @@ namespace Avaliacao_Atos.Application.Services
 
         public bool Put(UserViewModel userViewModel)
         {
+            if (userViewModel.Id == Guid.Empty)
+                throw new Exception("ID não é válido");
+
             User user = userRepository.Find(x => x.Id == userViewModel.Id && !x.IsDeleted);
 
             if (user == null)
@@ -82,6 +88,9 @@ namespace Avaliacao_Atos.Application.Services
 
         public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
         {
+            if (string.IsNullOrEmpty(user.Email))
+                throw new Exception("Email é obrigatório para a autenticação");
+
             User _user = userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower());
 
             if (_user == null)

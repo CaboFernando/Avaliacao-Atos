@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao-Atos.Swagger", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao-Atos.Auth", "Avaliacao-Atos.Auth\Avaliacao-Atos.Auth.csproj", "{31743D9C-ADA7-41C0-8249-3D8A925ADF93}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-Tests", "0-Tests", "{B6AD1C6E-3F0D-4611-8EA8-B02AD0D67360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avaliacao-Atos.Application.Tests", "Avaliacao-Atos.Application.Tests\Avaliacao-Atos.Application.Tests.csproj", "{C3DF2813-0641-44F9-8948-1432A86EC51C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,10 @@ Global
 		{31743D9C-ADA7-41C0-8249-3D8A925ADF93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31743D9C-ADA7-41C0-8249-3D8A925ADF93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31743D9C-ADA7-41C0-8249-3D8A925ADF93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3DF2813-0641-44F9-8948-1432A86EC51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3DF2813-0641-44F9-8948-1432A86EC51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3DF2813-0641-44F9-8948-1432A86EC51C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3DF2813-0641-44F9-8948-1432A86EC51C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +85,7 @@ Global
 		{BB98F08F-2DA5-4C69-A587-B4F582F62E0E} = {E628EDA5-DABE-48A1-BCE2-CD520659A577}
 		{0D41082A-A5BD-48CC-A426-271D927D1E41} = {E628EDA5-DABE-48A1-BCE2-CD520659A577}
 		{31743D9C-ADA7-41C0-8249-3D8A925ADF93} = {E628EDA5-DABE-48A1-BCE2-CD520659A577}
+		{C3DF2813-0641-44F9-8948-1432A86EC51C} = {B6AD1C6E-3F0D-4611-8EA8-B02AD0D67360}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C142081A-7D56-4AE0-AABD-F2AD3C5B487F}
