@@ -6,7 +6,9 @@ using Avaliacao_Atos.Domain.Entites;
 using Avaliacao_Atos.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
+using ValidationContext = System.ComponentModel.DataAnnotations.ValidationContext;
 
 namespace Avaliacao_Atos.Application.Services
 {
@@ -48,6 +50,8 @@ namespace Avaliacao_Atos.Application.Services
         {
             if (userViewModel.Id != Guid.Empty)
                 throw new Exception("O Id do usuário não pode ser vazio");
+
+            Validator.ValidateObject(userViewModel, new ValidationContext(userViewModel), true);
 
             User user = mapper.Map<User>(userViewModel);
 
