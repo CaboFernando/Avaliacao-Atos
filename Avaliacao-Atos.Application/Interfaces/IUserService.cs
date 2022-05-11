@@ -7,7 +7,11 @@ namespace Avaliacao_Atos.Application.Interfaces
 {
     public interface IUserService
     {
+        UserViewModel GetById(string id);
         List<UserViewModel> Get();
         bool Post(UserViewModel userViewModel);
+        bool Put(UserViewModel userViewModel);
+
+
     }
 }

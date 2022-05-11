@@ -21,6 +21,12 @@ namespace Avaliacao_Atos.Controllers
             userService = _userService;
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetById(string id)
+        {
+            return Ok(userService.GetById(id));
+        }
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -31,6 +37,12 @@ namespace Avaliacao_Atos.Controllers
         public IActionResult Post(UserViewModel userViewModel)
         {
             return Ok(userService.Post(userViewModel));
+        }
+
+        [HttpPut]
+        public IActionResult Put(UserViewModel userViewModel)
+        {
+            return Ok(userService.Put(userViewModel));
         }
 
     }

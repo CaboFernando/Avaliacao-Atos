@@ -20,6 +20,19 @@ namespace Avaliacao_Atos.Application.Services
             mapper = _mapper;
         }
 
+        public UserViewModel GetById(string id)
+        {
+            if (!Guid.TryParse(id, out Guid userId))
+                throw new Exception("O id informado não é válido");
+
+            User user = userRepository.Find(x => x.Id == userId && !x.IsDeleted);
+
+            if (user == null)
+                throw new Exception("Usuário não encontrado");
+
+            return mapper.Map<UserViewModel>(user);
+        }
+
         public List<UserViewModel> Get()
         {
             List<UserViewModel> userViewModels = new List<UserViewModel>();
@@ -35,6 +48,20 @@ namespace Avaliacao_Atos.Application.Services
             User user = mapper.Map<User>(userViewModel);
 
             userRepository.Create(user);
+
+            return true;
+        }
+
+        public bool Put(UserViewModel userViewModel)
+        {
+            User user = userRepository.Find(x => x.Id == userViewModel.Id && !x.IsDeleted);
+
+            if (user == null)
+                throw new Exception("Usuário não encontrado");
+
+            user = mapper.Map<User>(userViewModel);
+
+            userRepository.Update(user);
 
             return true;
         }
