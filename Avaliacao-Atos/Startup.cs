@@ -1,8 +1,10 @@
 using AutoMapper;
 using Avaliacao_Atos.Application.AutoMapper;
+using Avaliacao_Atos.Auth.Models;
 using Avaliacao_Atos.Data.Context;
 using Avaliacao_Atos.IoC;
 using Avaliacao_Atos.Swagger;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Avaliacao_Atos
 {
@@ -36,6 +40,27 @@ namespace Avaliacao_Atos
             services.AddAutoMapper(typeof(AutoMapperSetup));
             // Seta swagger para utilizar como endpoint e documentação
             services.AddSwaggerConfiguration();
+
+            // Configurações para a autenticação JWT
+            var key = Encoding.ASCII.GetBytes(Settings.Secret);
+
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+                .AddJwtBearer(x =>
+                {
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -69,6 +94,10 @@ namespace Avaliacao_Atos
             }
 
             app.UseRouting();
+
+            // Setando a API a autenticar e autorizar com Jwt
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

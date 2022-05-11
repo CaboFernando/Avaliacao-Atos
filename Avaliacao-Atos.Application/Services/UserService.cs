@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Avaliacao_Atos.Application.Interfaces;
 using Avaliacao_Atos.Application.ViewModels;
+using Avaliacao_Atos.Auth.Services;
 using Avaliacao_Atos.Domain.Entites;
 using Avaliacao_Atos.Domain.Interfaces;
 using System;
@@ -77,6 +78,17 @@ namespace Avaliacao_Atos.Application.Services
                 throw new Exception("Usuário não encontrado");
 
             return userRepository.Delete(user);
+        }
+
+        public UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user)
+        {
+            User _user = userRepository.Find(x => !x.IsDeleted && x.Email.ToLower() == user.Email.ToLower());
+
+            if (_user == null)
+                throw new Exception("Usuário não encontrado");
+
+            return new UserAuthenticateResponseViewModel(mapper.Map<UserViewModel>(_user), TokenService.GenerateToken(_user));
+
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Avaliacao_Atos.Application.Interfaces
         bool Post(UserViewModel userViewModel);
         bool Put(UserViewModel userViewModel);
         bool Delete(string id);
+        UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestViewModel user);
 
     }
 }

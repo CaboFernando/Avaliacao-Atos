@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Avaliacao-Atos.Auth\Avaliacao-Atos.Auth.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.Domain\Avaliacao-Atos.Domain.csproj" />
   </ItemGroup>
 

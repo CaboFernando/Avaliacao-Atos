@@ -16,6 +16,8 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.6" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.25" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.5">
@@ -38,6 +40,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Avaliacao-Atos.Application\Avaliacao-Atos.Application.csproj" />
+    <ProjectReference Include="..\Avaliacao-Atos.Auth\Avaliacao-Atos.Auth.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.Data\Avaliacao-Atos.Data.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.IoC\Avaliacao-Atos.IoC.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.Swagger\Avaliacao-Atos.Swagger.csproj" />
