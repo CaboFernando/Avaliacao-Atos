@@ -7,15 +7,15 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { UsersComponent } from './users/users.component';
-import { UserDataService } from './data-services/user.data-service';
+import { CalculoComponent } from './calculo/calculo.component';
+import { CalculoDataService } from './data-services/calculo.data-service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    UsersComponent
+    CalculoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -23,10 +23,10 @@ import { UserDataService } from './data-services/user.data-service';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'users', component: UsersComponent }
+      { path: 'calculo', component: CalculoComponent }
     ])
   ],
-  providers: [UserDataService],
+  providers: [CalculoDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

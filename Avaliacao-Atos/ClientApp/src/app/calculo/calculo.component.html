@@ -1,0 +1,31 @@
+
+    <p>Bem-vindo ao calculo de CDB!</p>
+    
+    <div *ngIf="showResults">
+        <form>
+            <div class="form-group">
+                <label for="exampleInputValorMonetario">Valor Monetario:</label>
+                <input type="number" class="form-control" id="exampleInputValorMonetario" aria-describedby="ValorMonetariolHelp" placeholder="0.00" [(ngModel)]="calculo.ValorMonetario" name="ValorMonetario">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputQuantidadeMeses">Quantidade de Meses:</label>
+                <input type="number" class="form-control" id="exampleInputQuantidadeMeses" aria-describedby="QuantidadeMesesHelp" placeholder="0" [(ngModel)]="calculo.QuantidadeMeses" name="ValorMonetario">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="get()">Calcular</button>
+        </form>
+    </div>
+
+    <div *ngIf="!showResults">
+        
+        <form>
+            <div class="form-group">
+                <label for="exampleInputValorBruto">Valor Bruto:</label>
+                <input type="number" class="form-control" id="exampleInputValorBruto" aria-describedby="ValorBrutoHelp" placeholder="ValorBruto" [(ngModel)]="resultado.ValorBruto" name="ValorBruto">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputValorLiquido">Valor Liquido:</label>
+                <input type="number" class="form-control" id="exampleInputValorLiquido" aria-describedby="ValorLiquidoHelp" placeholder="ValorLiquido" [(ngModel)]="resultado.ValorLiquido" name="ValorLiquido">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="getNovo()">Novo Calculo</button>
+        </form>
+    </div>

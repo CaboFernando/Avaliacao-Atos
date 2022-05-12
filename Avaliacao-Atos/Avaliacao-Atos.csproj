@@ -56,11 +56,6 @@
     <TypeScriptCompile Include="ClientApp\src\app\data-services\user.data-service.ts" />
   </ItemGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-	    <TypeScriptExperimentalDecorators>True</TypeScriptExperimentalDecorators>
-	    <TypeScriptEmitDecoratorMetadata>True</TypeScriptEmitDecoratorMetadata>
-    </PropertyGroup>
-
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
     <Exec Command="node --version" ContinueOnError="true">
