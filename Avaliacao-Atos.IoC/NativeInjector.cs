@@ -14,6 +14,7 @@ namespace Avaliacao_Atos.IoC
             #region Services
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<ICalculoService, CalculoService>();
 
             #endregion
 
