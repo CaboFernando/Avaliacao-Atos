@@ -28,6 +28,20 @@ export class UsersComponent implements OnInit {
         });
     }
 
+    save() {
+        if (this.user.id) {
+            this.put();
+        }
+        else {
+            this.post();
+        }
+    }
+
+    openDetails(user) {
+        this.showList = false;
+        this.user = user;
+    }
+
     post() {
         this.userDataService.post(this.user).subscribe(data => {
             if (data) {
@@ -41,5 +55,20 @@ export class UsersComponent implements OnInit {
             alert('erro interno');
         });
     }
+
+    put() {
+        this.userDataService.put(this.user).subscribe(data => {
+            if (data) {
+                alert('Usuario atualizado com sucesso');
+                this.get();
+            } else {
+                alert('Erro ao atualizar usuario');
+            }
+        }, error => {
+            console.log(error);
+            alert('erro interno');
+        });
+    }
+
 
 }

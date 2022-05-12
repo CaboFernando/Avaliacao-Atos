@@ -42,7 +42,7 @@ namespace Avaliacao_Atos.Controllers
             return Ok(userService.Post(userViewModel));
         }
 
-        [HttpPut]
+        [HttpPut, AllowAnonymous]
         public IActionResult Put(UserViewModel userViewModel)
         {
             return Ok(userService.Put(userViewModel));
