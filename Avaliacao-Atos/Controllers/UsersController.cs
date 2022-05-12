@@ -48,10 +48,10 @@ namespace Avaliacao_Atos.Controllers
             return Ok(userService.Put(userViewModel));
         }
 
-        [HttpDelete("{_userId}"), AllowAnonymous]
-        public IActionResult Delete(string _userId)
+        [HttpDelete]
+        public IActionResult Delete()
         {
-            //string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
+            string _userId = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
 
             return Ok(userService.Delete(_userId));
         }

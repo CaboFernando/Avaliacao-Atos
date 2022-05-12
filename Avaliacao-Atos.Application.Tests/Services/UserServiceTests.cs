@@ -62,7 +62,6 @@ namespace Avaliacao_Atos.Application.Tests.Services
 
         #endregion
 
-
         #region validação de objetos corretos
 
         [Fact]

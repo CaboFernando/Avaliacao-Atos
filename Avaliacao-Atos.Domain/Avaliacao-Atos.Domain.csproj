@@ -5,4 +5,11 @@
     <RootNamespace>Avaliacao_Atos.Domain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.39.0.47922">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>
