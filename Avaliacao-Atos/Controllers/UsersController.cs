@@ -30,7 +30,7 @@ namespace Avaliacao_Atos.Controllers
             return Ok(userService.GetById(id));
         }
 
-        [HttpGet]
+        [HttpGet, AllowAnonymous]
         public IActionResult Get()
         {
             return Ok(userService.Get());

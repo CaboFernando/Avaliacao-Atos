@@ -39,11 +39,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\data-services\user.data-service.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Avaliacao-Atos.Application\Avaliacao-Atos.Application.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.Auth\Avaliacao-Atos.Auth.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.Data\Avaliacao-Atos.Data.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.IoC\Avaliacao-Atos.IoC.csproj" />
     <ProjectReference Include="..\Avaliacao-Atos.Swagger\Avaliacao-Atos.Swagger.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\data-services\user.data-service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
