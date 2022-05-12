@@ -42,6 +42,22 @@ export class UsersComponent implements OnInit {
         this.user = user;
     }
 
+    delete(user) {
+        this.userDataService.delete(user.id).subscribe(data => {
+            if (data) {
+                alert('Usuario removido com sucesso');
+                this.get();
+                this.user = {};
+            }
+            else {
+                alert('Erro ao cadastrar usuario');
+            }
+        }, error => {
+            console.log(error);
+            alert('erro interno');
+        });
+    }
+
     post() {
         this.userDataService.post(this.user).subscribe(data => {
             if (data) {
@@ -69,6 +85,5 @@ export class UsersComponent implements OnInit {
             alert('erro interno');
         });
     }
-
 
 }

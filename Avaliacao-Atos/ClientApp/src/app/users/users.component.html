@@ -13,7 +13,10 @@
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
-                <th scope="row"><button class="btn-primary" (click)="openDetails(user)">Editar</button></th>
+                <th scope="row">
+                    <button class="btn-primary" (click)="openDetails(user)">Editar</button>
+                    <button class="btn-danger" (click)="delete(user)">Remover</button>
+                </th>
                 <th scope="row">{{user.id}}</th>
                 <th scope="row">{{user.name}}</th>
                 <th scope="row">{{user.email}}</th>
