@@ -9,6 +9,8 @@ import { UserDataService } from '../data-services/user.data-service';
 export class UsersComponent implements OnInit {
 
     users: any[] = [];
+    user: any = {};
+    showList: boolean = true;
 
     constructor(private userDataService: UserDataService) { }
 
@@ -19,6 +21,21 @@ export class UsersComponent implements OnInit {
     get() {
         this.userDataService.get().subscribe((data : any[]) => {
             this.users = data;
+            this.showList = true;
+        }, error => {
+            console.log(error);
+            alert('erro interno');
+        });
+    }
+
+    post() {
+        this.userDataService.post(this.user).subscribe(data => {
+            if (data) {
+                alert('Usuario cadastradado com sucesso');
+                this.get();
+            } else {
+                alert('Erro ao cadastrar usuario');
+            }
         }, error => {
             console.log(error);
             alert('erro interno');
