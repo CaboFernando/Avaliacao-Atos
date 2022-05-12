@@ -10,12 +10,15 @@ export class UsersComponent implements OnInit {
 
     users: any[] = [];
     user: any = {};
+    userLogin: any = {};
+    userLogged: any = {};
     showList: boolean = true;
+    isAutheticate: boolean = false;
 
     constructor(private userDataService: UserDataService) { }
 
     ngOnInit() {
-        this.get();
+        
     }
 
     get() {
@@ -86,4 +89,26 @@ export class UsersComponent implements OnInit {
         });
     }
 
+    authenticate() {
+        this.userDataService.authenticate(this.userLogin).subscribe((data: any) => {
+
+            if (data.user) {
+                localStorage.setItem('user_logged', JSON.stringify(data));
+                this.get();
+                this.getUserData();
+            }
+            else {
+                alert('Usuario inválido');
+            }
+
+        }, error => {
+            console.log(error);
+            alert('Usuario nao cadastrado');
+        });
+    }
+
+    getUserData() {
+        this.userLogged = JSON.parse(localStorage.getItem('user_logged'));
+        this.isAutheticate = this.userLogged != null;
+    }
 }

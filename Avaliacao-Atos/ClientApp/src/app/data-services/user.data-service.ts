@@ -25,4 +25,8 @@ export class UserDataService {
         return this.http.delete(this.module + '/' + dataId);
     }
 
+    authenticate(data) {
+        return this.http.post(this.module + '/authenticate', data);
+    }
+
 }
