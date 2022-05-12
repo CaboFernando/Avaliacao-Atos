@@ -7,6 +7,6 @@ namespace Avaliacao_Atos.Application.Interfaces
 {
     public interface ICalculoService
     {
-        CalculoViewModel GetCalculo(double valor_monetario, int qtd_meses);
+        CalculoViewModel GetCalculo(decimal valor_monetario, int qtd_meses);
     }
 }

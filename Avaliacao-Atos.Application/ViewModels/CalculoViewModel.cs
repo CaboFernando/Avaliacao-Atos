@@ -6,7 +6,7 @@ namespace Avaliacao_Atos.Application.ViewModels
 {
     public class CalculoViewModel
     {
-        public double valor_bruto { get; set; }
-        public double valor_liquido { get; set; }
+        public decimal valor_bruto { get; set; }
+        public decimal valor_liquido { get; set; }
     }
 }
